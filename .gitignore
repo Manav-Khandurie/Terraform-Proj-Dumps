@@ -35,3 +35,92 @@ override.tf.json
 # Ignore CLI configuration files
 .terraformrc
 terraform.rc
+
+*.key
+*.keys
+*.priv
+*.rsa
+*.key.json
+
+.env
+.env.production
+*.ssh
+*.ssh-key
+
+.key-mrc
+
+## Certificate Authority
+*.ca
+
+## Certificate
+*.crt
+
+## Certificate Sign Request
+*.csr
+
+## Certificate
+*.der 
+
+## Key database file
+*.kdb
+
+## OSCP request data
+*.org
+
+## PKCS #12
+*.p12
+
+## PEM-encoded certificate data
+*.pem
+
+## Random number seed
+*.rnd
+
+## SSLeay data
+*.ssleay
+
+## S/MIME message
+*.smime
+
+# Ignore all SSH key files
+*.pem
+*.key
+*.pub
+
+# Ignore specific private and public key files
+private.key
+public.key
+
+# Ignore OpenSSL key and certificate files
+*.crt
+*.csr
+*.der
+*.p12
+*.pfx
+
+# Ignore PGP key files
+*.asc
+*.gpg
+*.kbx
+*.sig
+
+# Ignore other key or certificate file extensions that might be used
+*.enc
+*.cer
+*.keyfile
+*.jks
+*.p7b
+*.p7c
+*.keystore
+
+# Optionally, ignore any file that might contain keys
+*.secret
+*.vault
+*.json.secret
+*.env.secret
+*.secrets
+
+# Ignore specific files often used in cloud services
+credentials
+
+localkey

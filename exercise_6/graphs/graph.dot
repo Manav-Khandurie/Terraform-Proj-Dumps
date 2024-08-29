@@ -1,0 +1,81 @@
+digraph {
+	compound = "true"
+	newrank = "true"
+	subgraph "root" {
+		"[root] aws_ebs_volume.vpc_volume (expand)" [label = "aws_ebs_volume.vpc_volume", shape = "box"]
+		"[root] aws_instance.terra_instance (expand)" [label = "aws_instance.terra_instance", shape = "box"]
+		"[root] aws_internet_gateway.vpc_igw (expand)" [label = "aws_internet_gateway.vpc_igw", shape = "box"]
+		"[root] aws_key_pair.localkey (expand)" [label = "aws_key_pair.localkey", shape = "box"]
+		"[root] aws_route_table.vpc_rt (expand)" [label = "aws_route_table.vpc_rt", shape = "box"]
+		"[root] aws_route_table_association.a (expand)" [label = "aws_route_table_association.a", shape = "box"]
+		"[root] aws_route_table_association.b (expand)" [label = "aws_route_table_association.b", shape = "box"]
+		"[root] aws_route_table_association.c (expand)" [label = "aws_route_table_association.c", shape = "box"]
+		"[root] aws_security_group.vpc_sg (expand)" [label = "aws_security_group.vpc_sg", shape = "box"]
+		"[root] aws_subnet.private_subnet_1 (expand)" [label = "aws_subnet.private_subnet_1", shape = "box"]
+		"[root] aws_subnet.private_subnet_2 (expand)" [label = "aws_subnet.private_subnet_2", shape = "box"]
+		"[root] aws_subnet.private_subnet_3 (expand)" [label = "aws_subnet.private_subnet_3", shape = "box"]
+		"[root] aws_subnet.public_subnet_1 (expand)" [label = "aws_subnet.public_subnet_1", shape = "box"]
+		"[root] aws_subnet.public_subnet_2 (expand)" [label = "aws_subnet.public_subnet_2", shape = "box"]
+		"[root] aws_subnet.public_subnet_3 (expand)" [label = "aws_subnet.public_subnet_3", shape = "box"]
+		"[root] aws_volume_attachment.attach_vpc_volume (expand)" [label = "aws_volume_attachment.attach_vpc_volume", shape = "box"]
+		"[root] aws_vpc.main (expand)" [label = "aws_vpc.main", shape = "box"]
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" [label = "provider[\"registry.terraform.io/hashicorp/aws\"]", shape = "diamond"]
+		"[root] var.AMIS" [label = "var.AMIS", shape = "note"]
+		"[root] var.BACKEND_BACKET" [label = "var.BACKEND_BACKET", shape = "note"]
+		"[root] var.KEY" [label = "var.KEY", shape = "note"]
+		"[root] var.MY_IP" [label = "var.MY_IP", shape = "note"]
+		"[root] var.REGION" [label = "var.REGION", shape = "note"]
+		"[root] var.USER" [label = "var.USER", shape = "note"]
+		"[root] var.ZONE" [label = "var.ZONE", shape = "note"]
+		"[root] aws_ebs_volume.vpc_volume (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_ebs_volume.vpc_volume (expand)" -> "[root] var.ZONE"
+		"[root] aws_instance.terra_instance (expand)" -> "[root] aws_key_pair.localkey (expand)"
+		"[root] aws_instance.terra_instance (expand)" -> "[root] aws_security_group.vpc_sg (expand)"
+		"[root] aws_instance.terra_instance (expand)" -> "[root] aws_subnet.private_subnet_1 (expand)"
+		"[root] aws_instance.terra_instance (expand)" -> "[root] var.AMIS"
+		"[root] aws_instance.terra_instance (expand)" -> "[root] var.USER"
+		"[root] aws_internet_gateway.vpc_igw (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_key_pair.localkey (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] aws_key_pair.localkey (expand)" -> "[root] var.KEY"
+		"[root] aws_route_table.vpc_rt (expand)" -> "[root] aws_internet_gateway.vpc_igw (expand)"
+		"[root] aws_route_table_association.a (expand)" -> "[root] aws_route_table.vpc_rt (expand)"
+		"[root] aws_route_table_association.a (expand)" -> "[root] aws_subnet.public_subnet_1 (expand)"
+		"[root] aws_route_table_association.b (expand)" -> "[root] aws_route_table.vpc_rt (expand)"
+		"[root] aws_route_table_association.b (expand)" -> "[root] aws_subnet.public_subnet_2 (expand)"
+		"[root] aws_route_table_association.c (expand)" -> "[root] aws_route_table.vpc_rt (expand)"
+		"[root] aws_route_table_association.c (expand)" -> "[root] aws_subnet.public_subnet_3 (expand)"
+		"[root] aws_security_group.vpc_sg (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_security_group.vpc_sg (expand)" -> "[root] var.MY_IP"
+		"[root] aws_subnet.private_subnet_1 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.private_subnet_1 (expand)" -> "[root] var.ZONE"
+		"[root] aws_subnet.private_subnet_2 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.private_subnet_2 (expand)" -> "[root] var.ZONE"
+		"[root] aws_subnet.private_subnet_3 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.private_subnet_3 (expand)" -> "[root] var.ZONE"
+		"[root] aws_subnet.public_subnet_1 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.public_subnet_1 (expand)" -> "[root] var.ZONE"
+		"[root] aws_subnet.public_subnet_2 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.public_subnet_2 (expand)" -> "[root] var.ZONE"
+		"[root] aws_subnet.public_subnet_3 (expand)" -> "[root] aws_vpc.main (expand)"
+		"[root] aws_subnet.public_subnet_3 (expand)" -> "[root] var.ZONE"
+		"[root] aws_volume_attachment.attach_vpc_volume (expand)" -> "[root] aws_ebs_volume.vpc_volume (expand)"
+		"[root] aws_volume_attachment.attach_vpc_volume (expand)" -> "[root] aws_instance.terra_instance (expand)"
+		"[root] aws_vpc.main (expand)" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"]"
+		"[root] output.PrivateIP (expand)" -> "[root] aws_instance.terra_instance (expand)"
+		"[root] output.PublicIP (expand)" -> "[root] aws_instance.terra_instance (expand)"
+		"[root] output.dns_address (expand)" -> "[root] aws_instance.terra_instance (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.a (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.b (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_route_table_association.c (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_subnet.private_subnet_2 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_subnet.private_subnet_3 (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)" -> "[root] aws_volume_attachment.attach_vpc_volume (expand)"
+		"[root] provider[\"registry.terraform.io/hashicorp/aws\"]" -> "[root] var.REGION"
+		"[root] root" -> "[root] output.PrivateIP (expand)"
+		"[root] root" -> "[root] output.PublicIP (expand)"
+		"[root] root" -> "[root] output.dns_address (expand)"
+		"[root] root" -> "[root] provider[\"registry.terraform.io/hashicorp/aws\"] (close)"
+		"[root] root" -> "[root] var.BACKEND_BACKET"
+	}
+}
+

@@ -123,4 +123,6 @@ public.key
 # Ignore specific files often used in cloud services
 credentials
 
+# Private keys
 localkey
+vpc_ec2

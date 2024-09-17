@@ -1,0 +1,9 @@
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      InstanceType: t2.micro
+      ImageId: ami-0583d8c7a9c35822c
+      Tags:
+        - Key: "IAC"
+          Value: !Join [ "--" ,["Cloud" , "Formation"]]

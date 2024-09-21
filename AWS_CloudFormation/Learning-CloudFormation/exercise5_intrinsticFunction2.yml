@@ -1,0 +1,14 @@
+Resources:
+  MyInstance:
+    Type: AWS::EC2::Instance
+    Properties: 
+      InstanceType: t2.micro
+      ImageId: ami-0583d8c7a9c35822c #if we change the ami id then the change set will show replacement TRUE i.e.. imutable change
+      Tags:
+        - Key: "IAC"
+          Value: !Join [ "--" ,["Cloud" , "Formation"]]
+        - Key: "Author" 
+          Value: !Join
+          - " "
+          - - "Instance: "
+            - !Ref AWS::Region

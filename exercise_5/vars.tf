@@ -1,31 +1,31 @@
-variable "BACKEND_BACKET" {
-  default = "terraformstatebucketmanav"
+        variable "BACKEND_BACKET" {
+  default = "terraformstatebucketmanav"  # S3 bucket name for storing Terraform state
 }
 
 variable "REGION" {
-  default = "us-east-1"
+  default = "us-east-1"  # Default AWS region for resource deployment
 }
 
 variable "ZONE" {
-  default = "us-east-1a"
+  default = "us-east-1a"  # Default availability zone within the region
 }
 
 variable "USER" {
-  default = "ec2-user"
+  default = "ec2-user"  # Default SSH user for EC2 instances
 }
 
 variable "KEY" {
   type = map(string)
   default = {
-    publickey  = "localkey.pub"
-    privatekey = "localkey"
+    publickey  = "localkey.pub"  # Path to public key file for SSH access
+    privatekey = "localkey"      # Path to private key file for SSH access
   }
 }
 
 variable "AMIS" {
   type = map(string)
   default = {
-    us-east-1 = "ami-0583d8c7a9c35822c"
-    us-east-2 = "ami-0d5d9d301c853a04a"
+    us-east-1 = "ami-0583d8c7a9c35822c"  # AMI ID for us-east-1 region
+    us-east-2 = "ami-0d5d9d301c853a04a"  # AMI ID for us-east-2 region
   }
 }
